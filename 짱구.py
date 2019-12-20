@@ -44,7 +44,7 @@ async def on_message(message):
         await client.send_message(message.channel, foodresult)
         
     if message.content.startswith("!사다리"):
-        team = message.content[6:]
+        team = message.content[5:]
         peopleteam = team.split("/")
         people = peopleteam[0]
         team = peopleteam[1]
