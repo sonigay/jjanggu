@@ -30,11 +30,14 @@ async def on_message(message):
             dice = dice + random.randint(1, int(rolld[1]))
         await client.send_message(message.channel, str(dice))
 
-    if message.content.startswith('!뽑기'):
+    if message.content.startswith('!한명뽑기'):
         choice = message.content.split(" ")
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
         await client.send_message(message.channel, choiceresult)
+        
+    if message.content.startswith('!한명뽑기'):
+        await client.send_message(message.channel, "이번 당첨자 분은")        
 
     if message.content.startswith('!뭐먹지'):
         food = "짜장면 짬뽕 라면 밥 굶기"
@@ -43,8 +46,8 @@ async def on_message(message):
         foodresult = foodchoice[foodnumber-1]
         await client.send_message(message.channel, foodresult)
         
-    if message.content.startswith("!사다리"):
-        team = message.content[5:]
+    if message.content.startswith("!여러명뽑기"):
+        team = message.content[7:]
         peopleteam = team.split("/")
         people = peopleteam[0]
         team = peopleteam[1]
@@ -53,6 +56,9 @@ async def on_message(message):
         random.shuffle(teamname)
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
+ 
+    if message.content.startswith('!여러명뽑기'):
+        await client.send_message(message.channel, "이번 당첨자 분들은")  
 
 
 
