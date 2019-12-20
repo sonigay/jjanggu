@@ -13,7 +13,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("----------------")
-    await client.change_presence(game=discord.Game(name='SKEL혈맹관리', type=1))
+    await client.change_presence(game=discord.Game(name='당첨자뽑기', type=1))
 
 
 
@@ -30,7 +30,7 @@ async def on_message(message):
             dice = dice + random.randint(1, int(rolld[1]))
         await client.send_message(message.channel, str(dice))
 
-    if message.content.startswith('!골라'):
+    if message.content.startswith('!뽑기'):
         choice = message.content.split(" ")
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
@@ -42,6 +42,17 @@ async def on_message(message):
         foodnumber = random.randint(1, len(foodchoice))
         foodresult = foodchoice[foodnumber-1]
         await client.send_message(message.channel, foodresult)
+        
+    if message.content.startswith("!사다리"):
+        team = message.content[6:]
+        peopleteam = team.split("/")
+        people = peopleteam[0]
+        team = peopleteam[1]
+        person = people.split(" ")
+        teamname = team.split(" ")
+        random.shuffle(teamname)
+        for i in range(0, len(person)):
+            await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
 
 
 
