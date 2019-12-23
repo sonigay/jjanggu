@@ -48,7 +48,7 @@ async def on_message(message):
         await client.send_message(message.channel, "이번 당첨자 분들은")  
 
      if message.content.startswith("!여러명뽑기"):
-        team = message.content[8:]
+        team = message.content[9:]
         peopleteam = team.split("/")
         people = peopleteam[0]
         team = peopleteam[1]
