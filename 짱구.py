@@ -122,21 +122,9 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
         
-          ################ 들어와 ################ 
+   
         
-       if message.content.startswith("!들어와"):
-        channel = message.author.voice.voice_channel
-        server = message.server
-        voice_client = client.voice_client_in(server)
-        print("들어와")
-        print(voice_client)
-        print("들어와")
-        if voice_client== None:
-            await client.send_message(message.channel, '들어왔습니다') 
-            await client.join_voice_channel(channel)
-        else:
-            await client.send_message(message.channel, '봇이 이미 들어와있습니다.') 
-            
+
             
                    
             
