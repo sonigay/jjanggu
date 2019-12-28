@@ -80,13 +80,7 @@ async def on_message(message):
     ################ 정산확인 ################ 
     
      if message.content.startswith('!정산'):
-						if credentials !="" and doc !="" and worksheet !="" and A2 !="" and B2 !=""  :
-							SearchID = message.content[len('확인')+1:]
-							gc = gspread.authorize(credentials)
-							wks = gc.open(doc).worksheet(worksheet)
-
-							wks.update_acell(A2, SearchID)
-
+						
 							result = wks.acell(B2).value
 
 							embed = discord.Embed(
