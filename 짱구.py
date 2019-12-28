@@ -84,7 +84,7 @@ async def on_message(message):
 							result = wks.acell(B2).value
 
 							embed = discord.Embed(
-									description= '```' + SearchID + ' 셀은 ' + result + ' 입니다.```',
+									description= '```' + ' 셀은 ' + result + ' 입니다.```',
 									color=0xff00ff
 									)
 							await msg.channel.send(embed=embed, tts=False)
