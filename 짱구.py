@@ -81,13 +81,9 @@ async def on_message(message):
     
      if message.content.startswith('!정산'):
 						
-							result = wks.acell(B2).value
+	result = wks.acell(B2).value
 
-							embed = discord.Embed(
-									description= '```' + ' 셀은 ' + result + ' 입니다.```',
-									color=0xff00ff
-									)
-							await client.send_message(embed=embed, tts=False)
+	await client.send_message(result, channel, "이번 당첨자 분은")
 		     
             
             
