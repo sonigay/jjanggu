@@ -121,6 +121,36 @@ async def on_message(message):
             colour=discord.Color.red()
         )
         await client.send_message(message.channel, embed=embed)       
+        
+        
+         if message.content.startswith("!들어와"):
+        channel = message.author.voice.voice_channel
+        server = message.server
+        voice_client = client.voice_client_in(server)
+        print("들어와")
+        print(voice_client)
+        print("들어와")
+        if voice_client== None:
+            await client.send_message(message.channel, '들어왔습니다') # 호오.... 나를 부르는건가? 네녀석.. 각오는 되있겠지?
+            await client.join_voice_channel(channel)
+        else:
+            await client.send_message(message.channel, '봇이 이미 들어와있습니다.') # 응 이미 들어와있어 응쓰게싸
+
+
+
+
+    if message.content.startswith("!나가"):
+            server = message.server
+            voice_client = client.voice_client_in(server)
+            print("나가")
+            print(voice_client)
+            print("나가")
+            if voice_client == None:
+                await client.send_message(message.channel,'봇이 음성채널에 접속하지 않았습니다.') # 원래나가있었음 바보녀석 니녀석의 죄는 "어리석음" 이라는 .것.이.다.
+                pass
+            else:
+                await client.send_message(message.channel, '나갑니다') # 나가드림
+                await voice_client.disconnect()
             
             
 
