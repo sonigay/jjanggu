@@ -62,14 +62,14 @@ async def on_message(message):
             description=Text.strip(),
             colour=discord.Color.red()
         
-        await client.send_message(message.channel, choiceresult)
+        await client.send_message(message.channel, embed=embed, choiceresult)
         
      if message.content.startswith('!뭐먹지'):
         food = "짜장면 짬뽕 라면 밥 굶기"
         foodchoice = food.split(" ")
         foodnumber = random.randint(1, len(foodchoice))
         foodresult = foodchoice[foodnumber-1]
-        await client.send_message(message.channel, embed=embed, foodresult)
+        await client.send_message(message.channel, foodresult)
         
      if message.content.startswith('!여러명뽑기'):
         await client.send_message(message.channel, "이번 당첨자 분들은")  
