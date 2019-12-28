@@ -16,8 +16,24 @@ spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1j83Zex9AdiHad-LkmnndH
 doc = gc.open_by_url(spreadsheet_url)
 # 시트 선택하기
 worksheet = doc.worksheet('시트1')
- 
 
+
+cell_data = worksheet.acell('B1').value
+print(cell_data)
+ 
+row_data = worksheet.row_values(1)
+print(row_data)
+
+column_data = worksheet.col_values(1)
+print(column_data)
+
+
+# 범위(셀 위치 리스트) 가져오기
+range_list = worksheet.range('A1:D2')
+print(range_list)
+# 범위에서 각 셀 값 가져오기
+for cell in range_list:
+    print(cell.value)
 
 
 access_token = os.environ["BOT_TOKEN"]
