@@ -87,7 +87,7 @@ async def on_message(message):
 									description= '```' + ' 셀은 ' + result + ' 입니다.```',
 									color=0xff00ff
 									)
-							await msg.channel.send(embed=embed, tts=False)
+							await client.send_message(embed=embed, tts=False)
 		     
             
             
