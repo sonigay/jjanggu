@@ -77,6 +77,7 @@ async def on_message(message):
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
             
+            ################ 텍스트 정보확인 ################ 
             
      if message.content.startswith("!복권"):
         Text = ""
@@ -117,6 +118,76 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
+            
+            ################ 실시간 검색어 ################ 
+            
+           if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
+        url = "https://www.naver.com/"
+        html = urllib.request.urlopen(url)
+
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
+        realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
+        realTimeSerach3 = realTimeSerach2.find_all('li')
+
+
+        embed = discord.Embed(
+            title='네이버 실시간 검색어',
+            description='실시간검색어',
+            colour=discord.Colour.green()
+        )
+        for i in range(0,20):
+            realTimeSerach4 = realTimeSerach3[i]
+            realTimeSerach5 = realTimeSerach4.find('span', {'class': 'ah_k'})
+            realTimeSerach = realTimeSerach5.text.replace(' ', '')
+            realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
+            print(realTimeSerach)
+            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) # [텍스트](<링크>) 형식으로 적으면 텍스트 하이퍼링크 만들어집니다
+
+        await client.send_message(message.channel, embed=embed)  
+        
+        
+        ################ 번역 ################ 
+        
+        if message.content.startswith('!번역'):
+        learn = message.content.split(" ")
+        Text = ""
+
+        client_id = ""
+        client_secret = ""
+
+        url = "https://openapi.naver.com/v1/papago/n2mt"
+        print(len(learn))
+        vrsize = len(learn)  # 배열크기
+        vrsize = int(vrsize)
+        for i in range(1, vrsize): #띄어쓰기 한 텍스트들 인식함
+            Text = Text+" "+learn[i]
+        encText = urllib.parse.quote(Text)
+        data = "source=ko&target=en&text=" + encText
+
+        request = urllib.request.Request(url)
+        request.add_header("X-Naver-Client-Id", client_id)
+        request.add_header("X-Naver-Client-Secret", client_secret)
+
+        response = urllib.request.urlopen(request, data=data.encode("utf-8"))
+
+        rescode = response.getcode()
+        if (rescode == 200):
+            response_body = response.read()
+            data = response_body.decode('utf-8')
+            data = json.loads(data)
+            tranText = data['message']['result']['translatedText']
+        else:
+            print("Error Code:" + rescode)
+
+        print('번역된 내용 :', tranText)
+
+        embed = discord.Embed(
+            title='한글->영어 번역결과',
+            description=tranText,
+            colour=discord.Colour.green()
+        )
+        await client.send_message(message.channel,embed=embed)
 
 
 access_token = os.environ["BOT_TOKEN"]
