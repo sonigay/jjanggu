@@ -94,8 +94,7 @@ async def on_message(message):
 									color=0xff00ff
 									)
 							await msg.channel.send(embed=embed, tts=False)
-		else :
-			message = await client.get_channel(channel).fetch_message(msg.id)       
+		     
             
             
             
