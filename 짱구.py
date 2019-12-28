@@ -142,7 +142,7 @@ async def on_message(message):
             
         if message.content.startswith("!나가"):
             server = message.server
-            voice_client = client.voice_client_in(server)
+            voice_client = client.voice_client_out(server)
             print("나가")
             print(voice_client)
             print("나가")
