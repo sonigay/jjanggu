@@ -77,19 +77,6 @@ async def on_message(message):
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
             
-    ################ 정산확인 ################ 
-    
-     if message.content.startswith('!정산'):
-						
-	result = wks.acell(B2).value
-
-	await client.send_message(result, channel, "이번 당첨자 분은")
-		     
-            
-            
-            
- 
-
 
 
 access_token = os.environ["BOT_TOKEN"]
