@@ -4,8 +4,7 @@ from discord.ext import commands
 from itertools import cycle
 import random
 import os
-import sys
-import json
+
 
 import gspread
 
