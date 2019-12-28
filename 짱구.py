@@ -78,7 +78,7 @@ async def on_message(message):
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
             
-            ################ 텍스트 정보확인 ################ 
+            ################ 복권 ################ 
             
      if message.content.startswith("!복권"):
         Text = ""
