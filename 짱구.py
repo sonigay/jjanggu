@@ -55,6 +55,13 @@ async def on_message(message):
         choice = message.content.split(" ")
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
+        
+        print(Text.strip())
+        embed = discord.Embed(
+            title="이번 !",
+            description=Text.strip(),
+            colour=discord.Color.red()
+        
         await client.send_message(message.channel, choiceresult)
         
      if message.content.startswith('!뭐먹지'):
@@ -62,7 +69,7 @@ async def on_message(message):
         foodchoice = food.split(" ")
         foodnumber = random.randint(1, len(foodchoice))
         foodresult = foodchoice[foodnumber-1]
-        await client.send_message(message.channel, foodresult)
+        await client.send_message(message.channel, embed=embed, foodresult)
         
      if message.content.startswith('!여러명뽑기'):
         await client.send_message(message.channel, "이번 당첨자 분들은")  
@@ -113,7 +120,7 @@ async def on_message(message):
 
         print(Text.strip())
         embed = discord.Embed(
-            title="복권 숫자!",
+            title="복권 번호!",
             description=Text.strip(),
             colour=discord.Color.red()
         )
