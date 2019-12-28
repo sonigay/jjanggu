@@ -26,7 +26,6 @@ worksheet = doc.worksheet('시트1')
 client = discord.Client()
 
 
-
 @client.event
 async def on_ready():
     print("login")
@@ -77,6 +76,29 @@ async def on_message(message):
         random.shuffle(teamname)
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
+            
+    ################ 정산확인 ################ 
+    
+     if message.content.startswith('!정산'):
+						if credentials !="" and doc !="" and worksheet !="" and A2 !="" and B2 !=""  :
+							SearchID = message.content[len('확인')+1:]
+							gc = gspread.authorize(credentials)
+							wks = gc.open(doc).worksheet(worksheet)
+
+							wks.update_acell(A2, SearchID)
+
+							result = wks.acell(B2).value
+
+							embed = discord.Embed(
+									description= '```' + SearchID + ' 셀은 ' + result + ' 입니다.```',
+									color=0xff00ff
+									)
+							await msg.channel.send(embed=embed, tts=False)
+		else :
+			message = await client.get_channel(channel).fetch_message(msg.id)       
+            
+            
+            
  
 
 
