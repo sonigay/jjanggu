@@ -62,7 +62,7 @@ async def on_message(message):
             description=Text.strip(),
             colour=discord.Color.red()
         
-        await client.send_message(message.channel, embed=embed, choiceresult)
+        await client.send_message(message.channel, embed=embed)
         
      if message.content.startswith('!뭐먹지'):
         food = "짜장면 짬뽕 라면 밥 굶기"
