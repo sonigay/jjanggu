@@ -1,10 +1,21 @@
-import discord
-import asyncio
-from discord.ext import commands
-from itertools import cycle
-from gtts import gTTS
-import random
 import os
+import sys
+import asyncio
+import discord
+import datetime
+import random
+import math
+import logging
+from discord.ext import commands
+from gtts import gTTS
+from github import Github
+import base64
+import re #정산
+import gspread #정산
+from oauth2client.service_account import ServiceAccountCredentials #정산
+from io import StringIO
+import urllib.request
+
 
 
 import gspread
