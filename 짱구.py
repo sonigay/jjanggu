@@ -2,6 +2,7 @@ import discord
 import asyncio
 from discord.ext import commands
 from itertools import cycle
+from gtts import gTTS
 import random
 import os
 
