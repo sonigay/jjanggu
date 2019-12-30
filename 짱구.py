@@ -148,7 +148,7 @@ async def PlaySound(voiceclient, filename):
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[len('!ㅍ')+1:]
 				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
-				await client.send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
+				await client.send_message("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
 				await PlaySound(voice_client1, './sound/say.wav')
    
         
