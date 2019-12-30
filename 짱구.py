@@ -17,7 +17,8 @@ from io import StringIO
 import urllib.request
 
 
-
+def init():
+	global voice_client1
 
 @client.event
 async def on_ready():
@@ -121,7 +122,7 @@ async def on_message(message):
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[len('!ㅍ')+1:]
 				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
-				await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
+				await client.send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
 				await PlaySound(voice_client1, './sound/say.wav')
    
         
