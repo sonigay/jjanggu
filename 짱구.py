@@ -126,8 +126,9 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
-@client.event
-async def on_message(message):            
+ @client.event
+ async def on_message(message):
+            
     if message.content.startswith("!박스"):        
      embed = discord.Embed(title="타이틀!", colour=discord.Color.red())       
        await client.send_message(message.channel, embed=embed)     
