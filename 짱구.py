@@ -1,10 +1,10 @@
 import discord
 import asyncio
+from discord.ext import commands
+from itertools import cycle
 import random
 import os
 
-
-client = discord.Client()
 
 
 
@@ -58,9 +58,8 @@ async def on_message(message):
         random.shuffle(teamname)
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
- 
-
- ################ 복권 ################ 
+            
+            ################ 텍스트 정보확인 ################ 
             
      if message.content.startswith("!복권"):
         Text = ""
@@ -95,11 +94,13 @@ async def on_message(message):
 
         print(Text.strip())
         embed = discord.Embed(
-            title="복권 번호!",
+            title="복권 숫자!",
             description=Text.strip(),
             colour=discord.Color.red()
         )
         await client.send_message(message.channel, embed=embed)       
+            
+            
 
 
 
