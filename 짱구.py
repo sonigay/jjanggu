@@ -138,7 +138,7 @@ async def on_message(message):
 						name="----- 두번째인사를합니다. -----",
 						value= '```그럼 안녕하실께요```'
 						)
-				await client.send_message(message.channel, embed=embed, tts=False)
+				await client.send_message(message.channel, embed=embed)
             
             ################################ 
 
