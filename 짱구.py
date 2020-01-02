@@ -131,7 +131,7 @@ async def on_message(message):
             if message.content.startswith('!안녕'):
             embed = discord.Embed(
 						title = "----- 인사를합니다 -----",
-						description= '```' + '안녕하세요' + '```',
+						description= '```'안녕하세요'```',
 						color=0xff00ff
 						)
 				embed.add_field(
