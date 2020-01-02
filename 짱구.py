@@ -33,7 +33,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("----------------")
-    await client.change_presence(game=discord.Game(name='당첨자뽑기', type=1))
+    await client.change_presence(game=discord.Game(name='업무지식 안내', type=1))
 
 
 
@@ -126,7 +126,17 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
+            ################ 질문 답변 ################ 
             
+            if message.content.startswith('!안녕'):
+            embed = discord.Embed(
+            title="복권 번호!",
+           # description=Text.strip(),
+            colour=discord.Color.red()
+        )
+        await client.send_message(message.channel, embed=embed)
+            
+            ################################ 
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
