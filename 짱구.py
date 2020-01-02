@@ -1,24 +1,12 @@
-import os
-import sys
-import asyncio
 import discord
-import datetime
+import asyncio
 import random
-import math
-import logging
-from discord.ext import commands
-from gtts import gTTS
-from github import Github
-import base64
-import re #정산
-import gspread #정산
-from oauth2client.service_account import ServiceAccountCredentials #정산
-from io import StringIO
-import urllib.request
+import os
 
 
-def init():
-	global voice_client1
+client = discord.Client()
+
+
 
 @client.event
 async def on_ready():
@@ -48,9 +36,6 @@ async def on_message(message):
         choice = message.content.split(" ")
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
-        
-       
-        
         await client.send_message(message.channel, choiceresult)
         
      if message.content.startswith('!뭐먹지'):
@@ -73,8 +58,9 @@ async def on_message(message):
         random.shuffle(teamname)
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
-            
-            ################ 복권 ################ 
+ 
+
+ ################ 복권 ################ 
             
      if message.content.startswith("!복권"):
         Text = ""
@@ -114,48 +100,8 @@ async def on_message(message):
             colour=discord.Color.red()
         )
         await client.send_message(message.channel, embed=embed)       
-        
-        #mp3 파일 생성함수(gTTS 이용, 남성목소리)
-async def MakeSound(saveSTR, filename):
-	'''
-	tts = gTTS(saveSTR, lang = 'ko')
-	tts.save('./' + filename + '.mp3')
-	'''
-	try:
-		encText = urllib.parse.quote(saveSTR)
-		urllib.request.urlretrieve("https://clova.ai/proxy/voice/api/tts?text=" + encText + "%0A&voicefont=1&format=wav",filename + '.wav')
-	except Exception as e:
-		print (e)
-		tts = gTTS(saveSTR, lang = 'ko')
-		tts.save('./' + filename + '.wav')
-		pass
 
-#mp3 파일 재생함수	
-async def PlaySound(voiceclient, filename):
-	source = discord.FFmpegPCMAudio(filename)
-	try:
-		voiceclient.play(source)
-	except discord.errors.ClientException:
-		while voiceclient.is_playing():
-			await asyncio.sleep(1)
-	while voiceclient.is_playing():
-		await asyncio.sleep(1)
-	voiceclient.stop()
-	source.cleanup()
-        ################ 음성파일 생성 후 재생 ################ 			
-				
-			if message.content.startswith('!ㅍ') or message.content.startswith('!V'):
-				tmp_sayMessage = message.content
-				sayMessage = tmp_sayMessage[len('!ㅍ')+1:]
-				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
-				await client.send_message("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
-				await PlaySound(voice_client1, './sound/say.wav')
-   
-        
 
-            
-                   
-            
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
