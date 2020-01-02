@@ -126,21 +126,7 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
-            ################ 질문 답변 ################ 
-            
-            if message.content.startswith('!안녕'):
-            embed = discord.Embed(
-						title = "----- 인사를합니다 -----",
-						description= '안녕하세요',
-						color=0xff00ff
-						)
-				embed.add_field(
-						name="----- 두번째인사를합니다. -----",
-						value= '```그럼 안녕하실께요```'
-						)
-				await client.send_message(message.channel, embed=embed)
-            
-            ################################ 
+          
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
