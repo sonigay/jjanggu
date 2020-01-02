@@ -6,6 +6,25 @@ import random
 import os
 
 
+import gspread
+
+from oauth2client.service_account import ServiceAccountCredentials
+
+
+scope = [
+    'https://spreadsheets.google.com/feeds',
+    'https://www.googleapis.com/auth/drive',
+]
+json_file_name = 'jungsanfile-e5ae2dbc8879.json'
+credentials = ServiceAccountCredentials.from_json_keyfile_name(json_file_name, scope)
+gc = gspread.authorize(credentials)
+spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1WzFr_aNi6T_ievrOaVJK3hT2tRQsjltfACC6WL2qXNI/edit#gid=716684045'
+# 스프레스시트 문서 가져오기
+doc = gc.open_by_url(spreadsheet_url)
+# 시트 선택하기
+worksheet = doc.worksheet('시트1')
+
+client = discord.Client()
 
 
 @client.event
@@ -36,7 +55,14 @@ async def on_message(message):
         choice = message.content.split(" ")
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
-        await client.send_message(message.channel, choiceresult)
+        
+        print(Text.strip())
+        embed = discord.Embed(
+            title="이번 !",
+            description=Text.strip(),
+            colour=discord.Color.red()
+        
+        await client.send_message(message.channel, embed=embed)
         
      if message.content.startswith('!뭐먹지'):
         food = "짜장면 짬뽕 라면 밥 굶기"
@@ -59,7 +85,7 @@ async def on_message(message):
         for i in range(0, len(person)):
             await client.send_message(message.channel, person[i] + "---->" + teamname[i])   
             
-            ################ 텍스트 정보확인 ################ 
+            ################ 복권 ################ 
             
      if message.content.startswith("!복권"):
         Text = ""
@@ -94,15 +120,13 @@ async def on_message(message):
 
         print(Text.strip())
         embed = discord.Embed(
-            title="복권 숫자!",
+            title="복권 번호!",
             description=Text.strip(),
             colour=discord.Color.red()
         )
         await client.send_message(message.channel, embed=embed)       
             
             
-
-
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
