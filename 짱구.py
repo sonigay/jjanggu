@@ -101,6 +101,8 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
+            ################ 복권 ################ 
+            
 @client.event
 async def on_message(message):
 
@@ -113,6 +115,12 @@ async def on_message(message):
          embed.add_field(name="아이디", value=message.author.id, inline=True)
          embed.set_thumbnail(url=message.author.avatar_url)
          await client.send_message(message.channel, embed=embed)
+            
+     ################ embed ################        
+            
+     if message.content.startswith('!박스'):
+        embed = discord.Embed(title="박스타이틀!", color=0x00ff00)
+        await client.send_message(message.channel, embed=embed) 
             
             
 
