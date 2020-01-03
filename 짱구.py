@@ -134,9 +134,8 @@ async def on_message(message):
      if message.content.startswith('!명령'):
         embed = discord.Embed(title="명령어!", color=0x00ff00)
         embed.add_field(name="1", value= '```박스```')
-        
-        
-        await client.send_message(message.channel, embed=embed, tts=False)  
+                
+        await client.send_message(message.channel, embed=embed)  
         
         
         
