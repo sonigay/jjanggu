@@ -4,9 +4,6 @@ import random
 import os
 import datetime
 
-
-
-	
 	
 
 @client.event
