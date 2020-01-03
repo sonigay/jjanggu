@@ -108,9 +108,9 @@ async def on_message(message):
          date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
          embed = discord.Embed(color=0x00ff00)
          embed.add_field(name="이름", value=message.author.name, inline=True)
-         embed.add_field(name="서버닉네임", value=message.author.name, inline=True)
+         embed.add_field(name="서버닉네임", value=message.author.display_name, inline=True)
          embed.add_field(name="가입일", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일", inline=True)
-         embed.add_field(name="아이디", value=message.author.name, inline=True)
+         embed.add_field(name="아이디", value=message.author.id, inline=True)
          embed.set_thumbnail(url=message.author.avatar_url)
          await client.send_message(message.channel, embed=embed)
             
