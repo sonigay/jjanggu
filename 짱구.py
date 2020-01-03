@@ -38,14 +38,7 @@ async def on_message(message):
         choicenumber = random.randint(1, len(choice)-1)
         choiceresult = choice[choicenumber]
         
-        print(Text.strip())
-        embed = discord.Embed(
-            title="이번 !",
-            description=Text.strip(),
-            colour=discord.Color.red()
-        
-        await client.send_message(message.channel, embed=embed)
-        
+                
      if message.content.startswith('!뭐먹지'):
         food = "짜장면 짬뽕 라면 밥 굶기"
         foodchoice = food.split(" ")
