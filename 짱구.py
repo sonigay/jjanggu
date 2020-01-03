@@ -2,7 +2,7 @@ import discord
 import asyncio
 import random
 import os
-
+import datetime
 
 
 
@@ -101,9 +101,20 @@ async def on_message(message):
         )
         await client.send_message(message.channel, embed=embed)       
             
+@client.event
+async def on_message(message):
 
-  
-          
+     if message.content.startswith('!정보'):
+         date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
+         embed = discord.Embed(color=0x00ff00)
+         embed.add_field(name="이름", value=message.author.name, inline=True)
+         embed.add_field(name="서버닉네임", value=message.author.name, inline=True)
+         embed.add_field(name="가입일", value=str(date.year) + "년" + str(date.year) + "월" + str(date.year) + "일", inline=True)
+         embed.add_field(name="아이디", value=message.author.name, inline=True)
+         embed.set_thumbnail(url=message.author.avatar_url)
+         await client.send_message(message.channel, embed=embed)
+            
+            
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
