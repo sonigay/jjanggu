@@ -180,7 +180,7 @@ async def on_message(message):
 						name="----- 추가기능 -----",
 						value= '```[보스명]컷/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능```'
 						)
-				await client.get_channel(channel).send( embed=embed, tts=False)
+				await client.send_message(message.channel, embed=embed, tts=False)  
 
             
             
