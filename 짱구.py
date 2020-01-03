@@ -137,6 +137,26 @@ async def on_message(message):
         embed.add_field(name="2", value= '```!박스2```')
         
         await client.send_message(message.channel, embed=embed, tts=False)  
+        
+        
+        
+     ################ 보탐봇 메뉴 출력 ################
+			
+			if message.content.startswith('!박스3'):
+				command_list = ''
+				command_list += '명령어1'
+				command_list += '명령어2'
+				
+				embed = discord.Embed(
+						title = "----- 명령어 -----",
+						description= '```' + command_list + '```',
+						color=0xff00ff
+						)
+				embed.add_field(
+						name="박스2",
+						value= '```박스2내용```'
+						)
+				await client.get_channel(channel).send( embed=embed, tts=False)   
             
             
 
