@@ -121,7 +121,7 @@ async def on_message(message):
      if message.content.startswith('!박스'):
         embed = discord.Embed(title="박스타이틀!", value= '```----처음박스----```' color=0x00ff00)
         embed.add_field(name="----- 추가박스 -----", value= '```됐나?```')
-        await client.send_message(message.channel, embed=embed) 
+        await client.send_message(message.channel, embed=embed, tts=False) 
             
             
 
