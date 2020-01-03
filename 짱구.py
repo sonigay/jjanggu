@@ -9,6 +9,24 @@ import datetime
 
 client = discord.Client()
 
+global command
+
+command = []
+
+command_inidata = repo.get_contents("command.ini")
+	file_data4 = base64.b64decode(command_inidata.content)
+	file_data4 = file_data4.decode('utf-8')
+	command_inputData = file_data4.split('\n')
+
+	
+for i in range(command_inputData.count('\r')):
+		command_inputData.remove('\r')
+		
+del(command_inputData[0])		
+		
+for i in range(len(command_inputData)):
+		command.append(command_inputData[i][12:].rstrip('\r'))     #command[0] ~ [22] : 명령어	
+	
 
 @client.event
 async def on_ready():
