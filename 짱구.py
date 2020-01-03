@@ -1,31 +1,13 @@
 import discord
 import asyncio
 import random
-from discord.ext import commands
+
 import os
 import datetime
 
 
 
-client = discord.Client()
-
-global command
-
-command = []
-
-command_inidata = repo.get_contents("command.ini")
-	file_data4 = base64.b64decode(command_inidata.content)
-	file_data4 = file_data4.decode('utf-8')
-	command_inputData = file_data4.split('\n')
-
 	
-for i in range(command_inputData.count('\r')):
-		command_inputData.remove('\r')
-		
-del(command_inputData[0])		
-		
-for i in range(len(command_inputData)):
-		command.append(command_inputData[i][12:].rstrip('\r'))     #command[0] ~ [22] : 명령어	
 	
 
 @client.event
@@ -150,7 +132,7 @@ async def on_message(message):
         
         
         
-     if message.content.startswith('!박스2'):
+     if message.content.startswith('!명령'):
         embed = discord.Embed(title="명령어!", color=0x00ff00)
         embed.add_field(value= '```!박스```')
         embed.add_field(name="2", value= '```!박스2```')
@@ -159,47 +141,7 @@ async def on_message(message):
         
         
         
-    if message.content == command[0]:
-				command_list = ''
-				command_list += command[1] + '\n'     #!설정확인
-				command_list += command[2] + '\n'     #!채널확인
-				command_list += command[3] + ' [채널명]\n'     #!채널이동
-				command_list += command[4] + '\n'     #!소환
-				command_list += command[5] + '\n'     #!불러오기
-				command_list += command[6] + '\n'     #!초기화
-				command_list += command[7] + '\n'     #!명치
-				command_list += command[8] + '\n'     #!재시작
-				command_list += command[9] + '\n'     #!미예약
-				command_list += command[10] + ' [인원] [금액]\n'     #!분배
-				command_list += command[11] + ' [뽑을인원수] [아이디1] [아이디2]...\n'     #!사다리
-				command_list += command[12] + ' [아이디]\n'     #!정산
-				command_list += command[13] + ' 또는 ' + command[14] + ' 0000, 00:00\n'     #!보스일괄
-				command_list += command[14] + '\n'     #!q
-				command_list += command[15] + ' [할말]\n'     #!v
-				command_list += command[16] + '\n'     #!리젠
-				command_list += command[17] + '\n'     #!현재시간
-				command_list += command[18] + '\n'     #!공지
-				command_list += command[18] + ' [공지내용]\n'     #!공지
-				command_list += command[18] + '삭제\n'     #!공지
-				command_list += command[19] + ' [할말]\n\n'     #!상태
-				command_list += command[20] + '\n'     #보스탐
-				command_list += command[21] + '\n'     #!보스탐
-				command_list += '[보스명]컷 또는 [보스명]컷 0000, 00:00\n'     
-				command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
-				command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
-				command_list += '[보스명]삭제\n'     
-				command_list += '[보스명]메모 [할말]\n'
-				embed = discord.Embed(
-						title = "----- 명령어 -----",
-						description= '```' + command_list + '```',
-						color=0xff00ff
-						)
-				embed.add_field(
-						name="----- 추가기능 -----",
-						value= '```[보스명]컷/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능```'
-						)
-				await client.send_message(message.channel, embed=embed, tts=False)  
-
+  
             
             
 
