@@ -120,14 +120,23 @@ async def on_message(message):
             
      if message.content.startswith('!박스'):
         embed = discord.Embed(title="박스타이틀!", color=0x00ff00)
-        embed.add_field(name="박스1", value= '```내용1```', inline=false)
-        embed.add_field(name="박스2", value= '```내용2```', inline=True)
+        embed.add_field(name="박스1", value= '```내용1```')
+        embed.add_field(name="박스2", value= '```내용2```')
         embed.add_field(name="박스3", value= '```내용3```', inline=True)
-        embed.add_field(name="박스4", value= '```내용4```', inline=false)
+        embed.add_field(name="박스4", value= '```내용4```', inline=True)
         embed.add_field(name="박스5", value= '```내용5```')
         embed.add_field(name="박스5", value= '```내용5```')
         embed.add_field(name="박스5", value= '```내용5```')
         await client.send_message(message.channel, embed=embed, tts=False) 
+        
+        
+        
+      if message.content.startswith('!박스2'):
+        embed = discord.Embed(title="명령어!", color=0x00ff00)
+        embed.add_field(value= '```!박스```')
+        embed.add_field(value= '```!박스2```')
+        
+        await client.send_message(message.channel, embed=embed, tts=False)  
             
             
 
