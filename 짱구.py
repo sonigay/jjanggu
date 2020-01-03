@@ -33,7 +33,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("----------------")
-    await client.change_presence(game=discord.Game(name='응대 안내', type=1))
+    await client.change_presence(game=discord.Game(name='업무지식 안내', type=1))
 
 
 
