@@ -127,7 +127,7 @@ async def on_message(message):
         embed.add_field(name="박스5", value= '```내용5```')
         embed.add_field(name="박스5", value= '```내용5```')
         embed.add_field(name="박스5", value= '```내용5```')
-        await client.send_message(message.channel, embed=embed, tts=False) 
+        await client.send_message(message.channel, embed=embed, tts=True) 
         
         
         
