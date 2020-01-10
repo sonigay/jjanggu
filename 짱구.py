@@ -104,8 +104,6 @@ async def on_message(message):
             
             ################ 복권 ################ 
             
-@client.event
-async def on_message(message):
 
      if message.content.startswith('!정보'):
          date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
