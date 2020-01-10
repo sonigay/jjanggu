@@ -22,13 +22,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    
-    if message.channel.is_private and message.author != "538289410018639893":
-        await client.send_message(discord.utils.get(client.get_all_memvers(), id="315237238940106754", message.author.name + "(" +message.author.id + ") : " + message.content)
-    
-    
-@client.event
-async def on_message(message):
 
      if message.content.startswith('!주사위'):
         roll = message.content.split(" ")
@@ -152,7 +145,12 @@ async def on_message(message):
         embed.add_field(name="1", value= '```!박스```')
                
         await client.send_message(message.channel, embed=embed, tts=False)   
-            
+
+                                  
+@client.event
+async def on_message(message):
+    if message.channel.is_private and message.author != "538289410018639893":
+        await client.send_message(discord.utils.get(client.get_all_memvers(), id="315237238940106754", message.author.name + "(" +message.author.id + ") : " + message.content)
             
 
 access_token = os.environ["BOT_TOKEN"]
