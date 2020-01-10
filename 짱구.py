@@ -27,12 +27,6 @@ async def on_message(message):
     
     
     
-    
-    
-    
-    
-@client.event
-async def on_message(message):
 
      if message.content.startswith('!주사위'):
         roll = message.content.split(" ")
