@@ -153,5 +153,10 @@ async def on_message(message):
         await client.send_message(discord.utils.get(client.get_all_memvers(), id="315237238940106754", message.author.name + "(" +message.author.id + ") : " + message.content)
             
 
+
+                                  
+                                  
+                                  
+                                  
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
