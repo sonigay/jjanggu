@@ -19,6 +19,18 @@ async def on_ready():
 
 
 
+
+@client.event
+async def on_message(message):
+    if message.channel.is_private and message.author != "538289410018639893":
+        await client.send_message(discord.utils.get(client.get_all_memvers(), id="315237238940106754", message.author.name + "(" +message.author.id + ") : " + message.content)
+    
+    
+    
+    
+    
+    
+    
 @client.event
 async def on_message(message):
 
