@@ -21,7 +21,7 @@ if message.content.startswith('!주문'):
     user = client.get_user(message.author.id)
     embed = discord.Embed(
         title = ' ' + sheet1 + '  ',
-        description= '```' + sheet1 +' '```',
+        description= '```' + result +' '```',
         color=0xFFFF00
         )
     await user.send(embed=embed, tts=False)
