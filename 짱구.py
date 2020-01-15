@@ -13,7 +13,6 @@ doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_i
 
 sheet1 = doc.worksheet('재고주문')
 
-sheet1.insert_row(['내용2', '내용5'], 3)
 
 client = discord.Client()
 
@@ -33,6 +32,7 @@ async def on_ready():
 async def on_message(message):
     
     if message.content.startswith('!주문'):
+             sheet1.insert_row(['내용3', '내용6'], 3)
              await client.send_message(client.get_channel("661768769131249667"), ' 완료했습니다.')
 
     if message.channel.is_private and message.author.id != "538289410018639893":
