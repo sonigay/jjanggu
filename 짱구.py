@@ -8,14 +8,16 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds']
 creds = ServiceAccountCredentials.from_json_keyfile_name('jungsanfile-e5ae2dbc8879.json', scope)
-client = gspread.authorize(creds)
+gc = gspread.authorize(creds)
 
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_iRCYeFwRzkzLxqf-3Pj0c6FeVuFYBM/edit#gid=0')
 
 sheet1 = doc.worksheet('재고주문')
 
 if message.content.startswith('!주문'):
-    sheet1.insert_row(['내용1', '내용2'],3)
+    gc = gspread.authorize(creds)
+    wks = doc.worksheet('재고주문')
+    result = wks.insert_row(['내용1', '내용2'],3)
     user = client.get_user(message.author.id)
     embed = discord.Embed(
         title = ' ' + sheet1 + '  ',
