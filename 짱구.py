@@ -23,11 +23,11 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    if message.channel.is_private and message.author.id != "":
-        await client.send_message(discord.utils.get(client.get_all_memvers(), id=""), message.author.name + "(" +message.author.id + ") : " +message.content)
+    if message.channel.is_private and message.author.id != "538289410018639893":
+        await client.send_message(discord.utils.get(client.get_all_memvers(), id="315237238940106754"), message.author.name + "(" +message.author.id + ") : " +message.content)
             
-    if message.channel.is_private and message.author.id != "":
-        await client.send_message(client.get_channel(""), message.author.name + "(" + message.author.id + ") : " + message.content)
+    if message.channel.is_private and message.author.id != "538289410018639893":
+        await client.send_message(client.get_channel("661768769131249667"), message.author.name + "(" + message.author.id + ") : " + message.content)
         
     if message.content.startswith("DM"):
         member = discord.utils.get(client.get_all_mambers(), id=message.content[4:22])
