@@ -13,12 +13,13 @@ doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_i
 
 sheet1 = doc.worksheet('재고주문')
 
+sheet1.insert_row(['내용2', '내용5'], 3)
+
 client = discord.Client()
 
 @client.event
 async def on_message(message):
     if message.content.startswith("!주문"):
-        sheet1.insert_row(['내용2', '내용5'], 3)
         await message.channel.send("완료했습니다.")
 
 @client.event
