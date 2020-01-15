@@ -20,7 +20,7 @@ if message.content.startswith('!주문'):
     result = wks.insert_row(['내용1', '내용2'],3)
     user = client.get_user(message.author.id)
     embed = discord.Embed(
-        title = ' ' + sheet1 + '  ',
+        title = ' ' + result + '  ',
         description= '```' + result + '```',
         color=0xFFFF00
         )
