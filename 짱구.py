@@ -12,12 +12,11 @@ gc = gspread.authorize(creds)
 
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_iRCYeFwRzkzLxqf-3Pj0c6FeVuFYBM/edit#gid=0')
 
-sheet1 = doc.worksheet('재고주문')
+wks = doc.worksheet('재고주문')
 
 client = discord.Client()
 
 if message.content.startswith('!주문'):
-        doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_iRCYeFwRzkzLxqf-3Pj0c6FeVuFYBM/edit#gid=0')
         gc = gspread.authorize(creds)
         wks = doc.worksheet('재고주문')
         result = wks.insert_row(['내용1', '내용2'],3)
