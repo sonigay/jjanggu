@@ -17,16 +17,16 @@ sheet1 = doc.worksheet('재고주문')
 client = discord.Client()
 
 if message.content.startswith('!주문'):
-    gc = gspread.authorize(creds)
-    wks = doc.worksheet('재고주문')
-    result = wks.insert_row(['내용1', '내용2'],3)
+        gc = gspread.authorize(creds)
+        wks = doc.worksheet('재고주문')
+        result = wks.insert_row(['내용1', '내용2'],3)
     
-    embed = discord.Embed(
-        title = ' ' + result + '  ',
-        description= '```' + result + '```',
-        color=0xFFFF00
-        )
-    await client.send_message(message.channel, embed=embed)
+        embed = discord.Embed(
+                        title = ' ' + result + '  ',
+                        description= '```' + result + '```',
+                        color=0xFFFF00
+                        )
+        await client.send_message(message.channel, embed=embed)
 
 
 
@@ -46,14 +46,14 @@ async def on_ready():
 async def on_message(message):
 
     if message.channel.is_private and message.author.id != "538289410018639893":
-        await client.send_message(discord.utils.get(client.get_all_members(), id="315237238940106754"), message.author.name + "(" + message.author.id + ") : " + message.content)
+            await client.send_message(discord.utils.get(client.get_all_members(), id="315237238940106754"), message.author.name + "(" + message.author.id + ") : " + message.content)
             
     if message.channel.is_private and message.author.id != "538289410018639893":
-        await client.send_message(client.get_channel("661768769131249667"), message.author.name + "(" + message.author.id + ") : " + message.content)
+            await client.send_message(client.get_channel("661768769131249667"), message.author.name + "(" + message.author.id + ") : " + message.content)
         
     if message.content.startswith("!DM"):
-        member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
-        await client.send_message(member, "봇 홍팀장답변 : " + message.content[23:])
+            member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
+            await client.send_message(member, "봇 홍팀장답변 : " + message.content[23:])
 
                         
 access_token = os.environ["BOT_TOKEN"]
