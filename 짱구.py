@@ -42,7 +42,7 @@ async def on_message(message):
             await client.send_message(client.get_channel("661768769131249667"), message.author.display_name + "(" + message.author.id + ") : " + message.content)
            
             
-    if message.content.startswith("!DM"):
+    if message.content.startswith("!답변"):
             member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
             await client.send_message(member, "홍팀장 개인답변 : " + message.content[23:])
 
