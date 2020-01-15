@@ -14,8 +14,6 @@ doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_i
 
 sheet1 = doc.worksheet('재고주문')
 
-cnt = int(sheet1.cell(1, 2).value)
-print('기존행수: ', cnt)
 
 sheet1.insert_row(['내용1', '내용2'],3)
 sheet1.update_cell(1, 2, str(cnt + 1)) 
