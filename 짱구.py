@@ -31,7 +31,7 @@ async def on_message(message):
         
     if message.content.startswith("DM"):
         member = discord.utils.get(client.get_all_mambers(), id=message.content[4:22])
-        await client.send_message(member,"봇 홍팀장답변 : " + message.content[23:])
+        await client.send_message(member, "봇 홍팀장답변 : " + message.content[23:])
 
                         
 access_token = os.environ["BOT_TOKEN"]
