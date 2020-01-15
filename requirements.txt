@@ -2,3 +2,4 @@ discord.py == 0.16.12
 PyGithub
 gspread
 oauth2client
+PyOpenSSL
