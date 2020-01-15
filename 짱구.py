@@ -14,6 +14,8 @@ doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_i
 
 sheet1 = doc.worksheet('재고주문')
 
+client = discord.Client()
+
 if message.content.startswith('!주문'):
     gc = gspread.authorize(creds)
     wks = doc.worksheet('재고주문')
@@ -26,7 +28,7 @@ if message.content.startswith('!주문'):
         )
     await user.send(embed=embed, tts=False)
 
-client = discord.Client()
+
 
 
 @client.event
