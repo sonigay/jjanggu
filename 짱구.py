@@ -18,7 +18,8 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     if messsage.content.startswith('!주문'):
-        sheet1.insert_row(['내용2', '내용5'])
+        client = gspread.authorize(creds)
+        await client.sheet1.insert_row(['내용2', '내용5'])
 
 @client.event
 async def on_ready():
