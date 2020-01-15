@@ -15,9 +15,10 @@ sheet1 = doc.worksheet('재고주문')
 
 client = discord.Client()
 
-
-if messsage.content.startswith('!주문'):
-    sheet1.insert_row(['내용2', '내용5'])
+@client.event
+async def on_message(message):
+    if messsage.content.startswith('!주문'):
+        sheet1.insert_row(['내용2', '내용5'])
 
 @client.event
 async def on_ready():
