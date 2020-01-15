@@ -26,7 +26,7 @@ if message.content.startswith('!주문'):
         description= '```' + result + '```',
         color=0xFFFF00
         )
-    await client.send_message(message.channel, embed=embed, tts=False)
+    await client.send_message(message.channel, embed=embed)
 
 
 
