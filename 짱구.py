@@ -39,7 +39,7 @@ async def on_message(message):
             
     if message.content.startswith('!주문'):
         if message.channel.is_private and message.author.id != "538289410018639893":
-            await client.send_message(client.get_channel("661768769131249667"), message.author.name + "(" + message.author.id + ") : " + message.content[23:])
+            await client.send_message(client.get_channel("661768769131249667"), message.author.name + "(" + message.author.id + ") : " + message.content[4:])
            
             
     if message.content.startswith("!답변"):
