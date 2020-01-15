@@ -17,10 +17,6 @@ sheet1.insert_row(['내용2', '내용5'], 3)
 
 client = discord.Client()
 
-@client.event
-async def on_message(message):
-    if message.content.startswith('!주문'):
-        await message.channel.send('완료했습니다.')
 
 @client.event
 async def on_ready():
@@ -35,6 +31,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    
+    if message.content.startswith('!주문'):
+            await message.channel.send('완료했습니다.')
 
     if message.channel.is_private and message.author.id != "538289410018639893":
             await client.send_message(discord.utils.get(client.get_all_members(), id="315237238940106754"), message.author.name + "(" + message.author.id + ") : " + message.content)
