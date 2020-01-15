@@ -14,7 +14,7 @@ doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_i
 
 sheet1 = doc.worksheet('재고주문')
 
-if message.content.startswith(!주문):
+if message.content.startswith('!주문'):
     sheet1.insert_row(['내용1', '내용2'],3)
     user = client.get_user(message.author.id)
     embed = discord.Embed(
