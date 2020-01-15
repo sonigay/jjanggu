@@ -21,12 +21,7 @@ if message.content.startswith('!주문'):
         wks = doc.worksheet('재고주문')
         result = wks.insert_row(['내용1', '내용2'],3)
     
-        embed = discord.Embed(
-                        title = ' ' + result + '  ',
-                        description= '```' + result + '```',
-                        color=0xFFFF00
-                        )
-        await client.send_message(message.channel, embed=embed)
+        await client.send_message(message.channel, result)
 
 
 
